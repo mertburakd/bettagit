@@ -29,7 +29,7 @@
                 <!----->
 
                 <div class="grid-form1">
-                    <form action="/Admin/UrunDuzenle/@Model.id" name="formName" id="formName" class="form-horizontal xz" method="post">
+                    <form action="/Admin/UrunDuzenle/@Model.id" name="formName" id="formName" enctype="multipart/form-data" class="form-horizontal xz" method="post">
                         <h3>ÜRÜN EKLEME</h3>
                         <div class="tab-content">
                             <div class="tab-pane active" id="horizontal-form">
@@ -98,8 +98,8 @@
                             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputFile">File input</label>
-                            <input type="file" id="inputpic" class="bbb" data-check="req" data-hata="Boş alanı doldurunuz."value="@Model.resim">
+                            <label for="photo">File input</label>
+                            <input type="file" name="photo" id="inputpic" class="bbb" data-check="req" data-hata="Boş alanı doldurunuz.">
                             <p class="help-block">Example block-level help text here.</p>
                         </div>
                         <div class="panel-footer">
