@@ -129,5 +129,12 @@ namespace BettaPlanet.Controllers
             return View(u);
         }
 
+        public ActionResult Inbox()
+        {
+
+
+            return View();
+        }
+
     }
 }
