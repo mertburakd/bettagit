@@ -72,7 +72,8 @@ namespace BettaPlanet.Controllers
                     kuyruk=gelenur.kuyruk,
                     tecrube=gelenur.tecrube,
                     yas=gelenur.yas,
-                    resim = ourFile.FileName,
+                    resimb = gelenur.resimb,
+                    resimk = gelenur.resimk,
 
             });
                 
