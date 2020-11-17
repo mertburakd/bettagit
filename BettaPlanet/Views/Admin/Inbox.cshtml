@@ -93,49 +93,43 @@
                                         <tbody>
                                         <thead class="thead-primary">
                                             <tr class="text-center">
-                                                <th>Müşteri adı </th>
-                                                <th>Fiyat</th>
-                                                <th>Kuyruk</th>
-                                                <th>Tecrübe</th>
-                                                <th>Yaş </th>
+                                                <th>Müşteri adı</th>
+                                                <th>E-Mail</th>
+                                                <th>Konu</th>
+                                                <th>Mesaj</th>
                                                 <th>Tarih</th>
-                                                <th>Düzenle</th>
                                                 <th>Sil</th>
                                             </tr>
                                         </thead>
-                                        
 
+                                        @foreach (var item in Model)
+                                        {
                                             <tr class="table-row">
-                                               
+
                                                 <td class="table-text">
-                                                    <h6> vfgbfnhtm</h6>
+                                                    <h6>@Model.name</h6>
                                                 </td>
 
                                                 <td class="table-text">
-                                                    <h6> dcvfgbhn</h6>
+                                                    <h6>@Model.email</h6>
                                                 </td>
-                                                <td>
-                                                    <span class="fam">dcfvgbhnj</span>
-
-                                                </td>
-                                                <td>
-                                                    <span class="mar">dxfcrgthyju</span>
+                                                
+                                                <td class="table-text">
+                                                    <h6>@Model.topic</h6>
                                                 </td>
                                                 <td class="table-text">
-                                                    <h6> fghnjmkl</h6>
+                                                    <h6>@Model.project</h6>
                                                 </td>
                                                 <td class="march">
-                                                    <h6>hfdcjklxş</h6>
+                                                    <h6>@Model.tarih</h6>
                                                 </td>
-                                                <td>
-                                                    <a href="/Admin/Duzeltici/" class="fa fa-magic icon-state-warning"></a>
-                                                </td>
+                                             
                                                 <td>
 
-                                                    <a href="/Admin/Urunsil/" class="fa  fa-trash-o icon-state-warning reqq"></a>
+                                                    <a href="/Home/MesajSil/" class="fa  fa-trash-o icon-state-warning reqq"></a>
                                                 </td>
                                             </tr>
-                                        
+                                        }
                                     </table>
                                 </div>
                             </div>
