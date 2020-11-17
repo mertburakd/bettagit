@@ -410,6 +410,8 @@
     <Content Include="Views\Admin\Input.cshtml" />
     <Content Include="Views\Admin\Urunler.cshtml" />
     <Content Include="Views\Admin\Duzeltici.cshtml" />
+    <Content Include="Views\Admin\Inbox.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

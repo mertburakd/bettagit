@@ -11,9 +11,7 @@ namespace BettaPlanet.Controllers
     {
         public ActionResult Index()
         {
-            List<URUNLER> mainpage = new List<URUNLER>();
-            mainpage = ctx.urunler.ToList();
-            return View(mainpage);
+            return View();
         }
 
         public ActionResult About()
@@ -28,9 +26,22 @@ namespace BettaPlanet.Controllers
         public ActionResult Contact()
         {
             
-
             return View();
         }
+
+        public ActionResult ContactPost(Models.Entities.iletisim iletisim)
+        {
+            iletisim i = new iletisim();
+            i.name = iletisim.name;
+            i.email = iletisim.email;
+            i.topic = iletisim.topic;
+            i.project = iletisim.project;
+            ctx.iletisim.Add(i);
+            ctx.SaveChanges();
+            Response.Redirect("/Home/Contact");
+            return View();
+        }
+
 
 
 

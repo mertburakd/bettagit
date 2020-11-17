@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Urunler";
+    ViewBag.Title = "Inbox";
     Layout = "~/Views/SharedA/_Layout.cshtml";
 }
 
@@ -93,54 +93,42 @@
                                         <tbody>
                                         <thead class="thead-primary">
                                             <tr class="text-center">
-                                                <th>Fotoğraf</th>
-                                                <th>Ürün Adı </th>
-
-                                                <th>Fiyat</th>
-                                                <th>Kuyruk</th>
-                                                <th>Tecrübe</th>
-                                                <th>Yaş </th>
+                                                <th>Müşteri adı</th>
+                                                <th>E-Mail</th>
+                                                <th>Konu</th>
+                                                <th>Mesaj</th>
                                                 <th>Tarih</th>
-                                                <th>Düzenle</th>
                                                 <th>Sil</th>
                                             </tr>
                                         </thead>
+
                                         @foreach (var item in Model)
                                         {
+                                            <tr class="table-row">
 
+                                                <td class="table-text">
+                                                    <h6>@Model.name</h6>
+                                                </td>
 
-                                        <tr class="table-row">
-                                            <td class="table-text">
-                                                <img style="width:70px;height: 70px" src="~/Content/Bettapic/Bettapick/@item.resimk" alt="">
-                                            </td>
-                                            <td class="table-text">
-                                                <h6> @item.urunadi</h6>
-                                            </td>
+                                                <td class="table-text">
+                                                    <h6>@Model.email</h6>
+                                                </td>
+                                                
+                                                <td class="table-text">
+                                                    <h6>@Model.topic</h6>
+                                                </td>
+                                                <td class="table-text">
+                                                    <h6>@Model.project</h6>
+                                                </td>
+                                                <td class="march">
+                                                    <h6>@Model.tarih</h6>
+                                                </td>
+                                             
+                                                <td>
 
-                                            <td class="table-text">
-                                                <h6> @item.fiyat</h6>
-                                            </td>
-                                            <td>
-                                                <span class="fam">@item.kuyruk</span>
-
-                                            </td>
-                                            <td>
-                                                <span class="mar">@item.tecrube</span>
-                                            </td>
-                                            <td class="table-text">
-                                                <h6> @item.yas</h6>
-                                            </td>
-                                            <td class="march">
-                                                <h6> @item.tarih</h6>
-                                            </td>
-                                            <td>
-                                                 <a href="/Admin/Duzeltici/@item.id" class="fa fa-magic icon-state-warning"></a>
-                                            </td>
-                                            <td>
-                 
-                                            <a href="/Admin/Urunsil/@item.id" class="fa  fa-trash-o icon-state-warning reqq"></a>
-                                            </td>
-                                        </tr>
+                                                    <a href="/Home/MesajSil/" class="fa  fa-trash-o icon-state-warning reqq"></a>
+                                                </td>
+                                            </tr>
                                         }
                                     </table>
                                 </div>

@@ -19,7 +19,8 @@ namespace BettaPlanet.Models
             public string tecrube { get; set; }
             public string yas { get; set; }
             public string fiyat { get; set; }
-            public string resim { get; set; }
+            public string resimb { get; set; }
+            public string resimk { get; set; }
             public DateTime tarih { get; set; }
         }
         [Table("iletisim")]
@@ -33,6 +34,8 @@ namespace BettaPlanet.Models
             public string email { get; set; }
             public string topic { get; set; }
             public string project { get; set; }
+            public DateTime tarih { get; set; }
+
 
         }
         [Table("about")]
