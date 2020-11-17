@@ -2,28 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace BettaPlanet.Models
 {
     public class Dto
     {
-        [Table("Iletisim")]
-        public class Iletisim
-        {
-            [Key]
-            [Column("id")]
-            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-            public int id { get; set; }
-            public string name { get; set; }
-            public string email { get; set; }
-            public string topic { get; set; }
-            public string project { get; set; }
-
-        }
-
-
+        
         public class MethodStatus
         {
             public bool success { get; set; }

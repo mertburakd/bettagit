@@ -11,7 +11,9 @@ namespace BettaPlanet.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            List<URUNLER> mainpage = new List<URUNLER>();
+            mainpage = ctx.urunler.ToList();
+            return View(mainpage);
         }
 
         public ActionResult About()

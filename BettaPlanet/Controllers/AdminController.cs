@@ -50,33 +50,31 @@ namespace BettaPlanet.Controllers
 
             else
             {
-                if (ourFile.FileName != null && ourFile.ContentLength > 0)
-                {
 
-                        Bitmap Resim = new Bitmap(ourFile.InputStream);
-                        Bitmap kucuk = new Bitmap(Resim, 100, 100);
-                        Bitmap buyuk = new Bitmap(Resim, 500, 500);
-                        string resimAdi = (Guid.NewGuid().ToString("N")) + (Path.GetFileName(ourFile.FileName));
-                        buyuk.Save(Server.MapPath("~/Content/Bettapic/Bettapicb/" + resimAdi));
-                        kucuk.Save(Server.MapPath("~/Content/Bettapic/Bettapick/" + resimAdi));
-                        Resim.Dispose();
-                        kucuk.Dispose();
-                        buyuk.Dispose();
-                }
+
+                Bitmap Resim = new Bitmap(ourFile.InputStream);
+                Bitmap kucuk = new Bitmap(Resim, 75, 75);
+                Bitmap buyuk = new Bitmap(Resim, 150, 150);
+                string resimAdi = (Guid.NewGuid().ToString("N")) + (Path.GetFileName(ourFile.FileName));
+                buyuk.Save(Server.MapPath("~/Content/Bettapic/Bettapicb/" + resimAdi));
+                kucuk.Save(Server.MapPath("~/Content/Bettapic/Bettapick/" + resimAdi));
+                Resim.Dispose();
+                kucuk.Dispose();
+                buyuk.Dispose();
 
                 var urunek = ctx.urunler.Add(new URUNLER()
                 {
                     urunadi = gelenur.urunadi,
                     fiyat = gelenur.fiyat,
                     tarih = System.DateTime.Now,
-                    kuyruk=gelenur.kuyruk,
-                    tecrube=gelenur.tecrube,
-                    yas=gelenur.yas,
-                    resimb = gelenur.resimb,
-                    resimk = gelenur.resimk,
+                    kuyruk = gelenur.kuyruk,
+                    tecrube = gelenur.tecrube,
+                    yas = gelenur.yas,
+                    resimb = resimAdi,
+                    resimk = resimAdi,
 
-            });
-                
+                });
+
                 ctx.SaveChanges();
                 //return olacak
                 _m.success = true;
@@ -113,7 +111,7 @@ namespace BettaPlanet.Controllers
 
 
         [HttpPost]
-        public ActionResult UrunDuzenle(int id,Dto.uruncuk ur)
+        public ActionResult UrunDuzenle(int id, Dto.uruncuk ur)
         {
             URUNLER u = ctx.urunler.FirstOrDefault(q => q.id == id);
             HttpPostedFileBase resim = Request.Files["photo"];
@@ -121,15 +119,15 @@ namespace BettaPlanet.Controllers
             {
 
                 Bitmap Resim = new Bitmap(resim.InputStream);
-                Bitmap kucuk = new Bitmap(Resim, 100, 100);
-                Bitmap buyuk = new Bitmap(Resim, 500, 500);
+                Bitmap kucuk = new Bitmap(Resim, 75, 75);
+                Bitmap buyuk = new Bitmap(Resim, 150, 150);
                 string resimAdi = (Guid.NewGuid().ToString("N")) + (Path.GetFileName(resim.FileName));
                 buyuk.Save(Server.MapPath("~/Content/Bettapic/Bettapicb/" + resimAdi));
                 kucuk.Save(Server.MapPath("~/Content/Bettapic/Bettapick/" + resimAdi));
                 Resim.Dispose();
                 kucuk.Dispose();
                 buyuk.Dispose();
-            }
+
 
                 u.id = id;
                 u.fiyat = ur.fiyat;
@@ -137,20 +135,29 @@ namespace BettaPlanet.Controllers
                 u.tarih = System.DateTime.Now;
                 u.yas = ur.yas;
                 u.tecrube = ur.tecrube;
-                u.resimk = ur.resimk;
-                u.resimb = ur.resimb;
+                u.resimk = resimAdi;
+                u.resimb = resimAdi;
+            }
+            ctx.SaveChanges();
 
-                ctx.SaveChanges();
-
-                Response.Redirect("/Admin/Duzeltici?id="+id);
+            Response.Redirect("/Admin/Duzeltici?id=" + id);
 
             return View(u);
         }
         public ActionResult Inbox()
         {
-            List<Iletisim> mainpage = new List<Iletisim>();
+            List<iletisim> mainpage = new List<iletisim>();
             mainpage = ctx.iletisim.ToList();
             return View(mainpage);
+        }
+        public ActionResult DellMessage(int id)
+        {
+            iletisim x = ctx.iletisim.FirstOrDefault(p => p.id == id);
+            ctx.iletisim.Remove(x);
+            ctx.SaveChanges();
+            Response.Redirect("/Admin/Inbox");
+            return View();
+
         }
      
 

@@ -48,14 +48,6 @@ namespace BettaPlanet.Models
             public string info { get; set; }
 
         }
-        [Table("resimler")]
-        public partial class RESIMLER
-        {
-            [Key]
-            [Column("id")]
-            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-            public int id { get; set; }
-            public string resimyol { get; set; }
-        }
+
     }
 }
