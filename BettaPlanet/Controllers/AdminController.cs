@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using BettaPlanet.Models;
 using static BettaPlanet.Models.Dto;
 using static BettaPlanet.Models.Entities;
+using System.Drawing;
 
 namespace BettaPlanet.Controllers
 {
@@ -51,8 +52,16 @@ namespace BettaPlanet.Controllers
             {
                 if (ourFile.FileName != null && ourFile.ContentLength > 0)
                 {
-                    var fileName = Path.GetFileName(ourFile.FileName);
-                    ourFile.SaveAs(Path.Combine(directory, fileName));
+
+                        Bitmap Resim = new Bitmap(ourFile.InputStream);
+                        Bitmap kucuk = new Bitmap(Resim, 100, 100);
+                        Bitmap buyuk = new Bitmap(Resim, 500, 500);
+                        string resimAdi = (Guid.NewGuid().ToString("N")) + (Path.GetFileName(ourFile.FileName));
+                        buyuk.Save(Server.MapPath("~/Content/Bettapic/Bettapicb/" + resimAdi));
+                        kucuk.Save(Server.MapPath("~/Content/Bettapic/Bettapick/" + resimAdi));
+                        Resim.Dispose();
+                        kucuk.Dispose();
+                        buyuk.Dispose();
                 }
 
                 var urunek = ctx.urunler.Add(new URUNLER()
@@ -103,16 +112,22 @@ namespace BettaPlanet.Controllers
 
 
         [HttpPost]
-        [ValidateInput(false)]
         public ActionResult UrunDuzenle(int id,Dto.uruncuk ur)
         {
             URUNLER u = ctx.urunler.FirstOrDefault(q => q.id == id);
-            string directory = Server.MapPath("/Content/Bettapic");
-            HttpPostedFileBase resim = Request.Files["exampleInputFile"];
-            if (ur.resim != null && resim.ContentLength > 0)
+            HttpPostedFileBase resim = Request.Files["photo"];
+            if (resim.FileName != null && resim.ContentLength > 0)
             {
-                var fileName = Path.GetFileName(resim.FileName);
-                resim.SaveAs(Path.Combine(directory, fileName));
+
+                Bitmap Resim = new Bitmap(resim.InputStream);
+                Bitmap kucuk = new Bitmap(Resim, 100, 100);
+                Bitmap buyuk = new Bitmap(Resim, 500, 500);
+                string resimAdi = (Guid.NewGuid().ToString("N")) + (Path.GetFileName(resim.FileName));
+                buyuk.Save(Server.MapPath("~/Content/Bettapic/Bettapicb/" + resimAdi));
+                kucuk.Save(Server.MapPath("~/Content/Bettapic/Bettapick/" + resimAdi));
+                Resim.Dispose();
+                kucuk.Dispose();
+                buyuk.Dispose();
             }
 
                 u.id = id;
@@ -121,6 +136,8 @@ namespace BettaPlanet.Controllers
                 u.tarih = System.DateTime.Now;
                 u.yas = ur.yas;
                 u.tecrube = ur.tecrube;
+                u.resimk = ur.resimk;
+                u.resimb = ur.resimb;
 
                 ctx.SaveChanges();
 
@@ -128,6 +145,13 @@ namespace BettaPlanet.Controllers
 
             return View(u);
         }
+        public ActionResult Inbox()
+        {
+            List<Iletisim> mainpage = new List<Iletisim>();
+            mainpage = ctx.iletisim.ToList();
+            return View(mainpage);
+        }
+     
 
     }
 }
