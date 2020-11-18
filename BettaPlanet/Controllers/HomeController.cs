@@ -9,6 +9,7 @@ namespace BettaPlanet.Controllers
 {
     public class HomeController : BaseController
     {
+
         public ActionResult Index()
         {
             List<URUNLER> mainpage = new List<URUNLER>();
@@ -46,7 +47,12 @@ namespace BettaPlanet.Controllers
         }
 
 
-
+        public ActionResult Bakimbilgi()
+        {
+            List<balikbilgi> mainpage = new List<balikbilgi>();
+            mainpage = ctx.balikbilgi.ToList();
+            return View(mainpage);
+        }
 
 
 

@@ -50,5 +50,17 @@ namespace BettaPlanet.Models
 
         }
 
+        [Table("balikbilgi")]
+        public class balikbilgi
+        {
+            [Key]
+            [Column("id")]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+            public int id { get; set; }
+            public string baslik { get; set; }
+            public string bilgi { get; set; }
+            public DateTime tarih { get; set; }
+
+        }
     }
 }

@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Bakimbilgi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="faq-w3 main-grid-border">
+    <div class="container">
+        
+        <div class="spec ">
+            <h3>Betta Balıkları Hakkında Detaylı Bilgiler</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <div class="panel-group" id="accordion">
+            <!-- First Panel -->
+            @foreach (var item in Model)
+            {
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title" data-toggle="collapse" data-target="#collapseOne">
+                            <span>@item.id . </span>@item.baslik
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>@item.bilgi</p>                          
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

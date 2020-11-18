@@ -20,6 +20,7 @@ namespace BettaPlanet.Models
         public DbSet<URUNLER> urunler { get; set; }
         public DbSet<about> about { get; set; }
         public DbSet<iletisim> iletisim { get; set; }
+        public DbSet<balikbilgi> balikbilgi { get; set; }
     
 
     }

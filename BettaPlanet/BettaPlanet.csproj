@@ -415,6 +415,7 @@
     <Content Include="Views\Admin\Duzeltici.cshtml" />
     <Content Include="Views\Admin\Inbox.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Bakimbilgi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
