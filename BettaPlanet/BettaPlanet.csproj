@@ -128,6 +128,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WhatsAppApi, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Whatsapp.NET.1.2.2\lib\WhatsAppApi.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
