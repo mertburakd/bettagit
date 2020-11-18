@@ -120,7 +120,7 @@ namespace BettaPlanet.Controllers
 
                 Bitmap Resim = new Bitmap(resim.InputStream);
                 Bitmap kucuk = new Bitmap(Resim, 75, 75);
-                Bitmap buyuk = new Bitmap(Resim, 300, 300);
+                Bitmap buyuk = new Bitmap(Resim, 250, 250);
                 string resimAdi = (Guid.NewGuid().ToString("N")) + (Path.GetFileName(resim.FileName));
                 buyuk.Save(Server.MapPath("~/Content/Bettapic/Bettapicb/" + resimAdi));
                 kucuk.Save(Server.MapPath("~/Content/Bettapic/Bettapick/" + resimAdi));
