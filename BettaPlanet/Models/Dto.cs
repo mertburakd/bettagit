@@ -34,6 +34,7 @@ namespace BettaPlanet.Models
             public string fiyat { get; set; }
             public string resimb { get; set; }
             public string resimk { get; set; }
+            public string aciklama { get; set; }
             public DateTime tarih { get; set; }
         }
 

@@ -68,6 +68,7 @@ namespace BettaPlanet.Controllers
                     fiyat = gelenur.fiyat,
                     tarih = System.DateTime.Now,
                     kuyruk = gelenur.kuyruk,
+                    aciklama = gelenur.aciklama,
                     tecrube = gelenur.tecrube,
                     yas = gelenur.yas,
                     resimb = resimAdi,
@@ -137,6 +138,7 @@ namespace BettaPlanet.Controllers
                 u.tecrube = ur.tecrube;
                 u.resimk = resimAdi;
                 u.resimb = resimAdi;
+                u.aciklama = ur.aciklama;
             }
             ctx.SaveChanges();
 

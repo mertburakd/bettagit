@@ -22,6 +22,7 @@ namespace BettaPlanet.Models
             public string resimb { get; set; }
             public string resimk { get; set; }
             public DateTime tarih { get; set; }
+            public string aciklama { get; set; }
         }
         [Table("iletisim")]
         public class iletisim

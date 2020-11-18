@@ -187,6 +187,7 @@
             var fd = new FormData();
             
             var gelenur = {
+                'aciklama': $('#aciklama').val(),
                 'urunadi': $('#Renk').val(),
                 'yas': $('#Yas').val(),
                 'tecrube': $('#Tecrube').val(),
@@ -194,7 +195,7 @@
                 'fiyat': $('#Fiyat').val(),
                 'resim': $('#inputpic').val(),
             }
-
+            fd.append("aciklama", $('#aciklama').val()),
             fd.append("ourFile", inputpic.files[0]);
             fd.append("urunadi", $('#Renk').val());
             fd.append("yas", $('#Yas').val());
