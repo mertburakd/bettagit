@@ -139,6 +139,18 @@ namespace BettaPlanet.Controllers
                 u.resimk = resimAdi;
                 u.resimb = resimAdi;
                 u.aciklama = ur.aciklama;
+
+
+            }
+            else
+            {
+                u.id = id;
+                u.fiyat = ur.fiyat;
+                u.kuyruk = ur.kuyruk;
+                u.tarih = System.DateTime.Now;
+                u.yas = ur.yas;
+                u.tecrube = ur.tecrube;
+                u.aciklama = ur.aciklama;
             }
             ctx.SaveChanges();
 
