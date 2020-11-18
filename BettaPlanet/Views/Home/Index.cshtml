@@ -26,8 +26,9 @@
                         <hr />
                         <div class="text-center">
                             <div class="women">
-                                <h2>@item.urunadi @item.kuyruk </h2> <br /> 
-                                <h6> @item.yas</h6>
+                                <h2>@item.urunadi  </h2> <br /> 
+                                <h5>@item.kuyruk</h5> <br />
+                                <h6>Yaş: @item.yas</h6>
                             </div>
                             <hr />
                                 <p><em class="item_price">@item.fiyat</em> TL</p>
@@ -84,18 +85,19 @@
                         </div>
                     </div>
                     <div class="col-md-7 span-1 ">
-                        <h3>@item.urunadi</h3>
-                        <span class="reducedfrom ">@item.kuyruk</span><br />
-                        <h6>Tecrübe:</h6>
-                        <span class="reducedfrom ">@item.tecrube</span>
-                        <p class="in-para"> Ürün Ekleme Tarihi : @item.tarih</p>
+                        <span style="font-size:50px" class="reducedfrom ">@item.urunadi</span>
+                        <h3>@item.kuyruk</h3><br />
+                        <h4>Tecrübe: <span>@item.tecrube</span></h4>
+                        <hr />
                         <div class="price_single">
-                            <span class="reducedfrom ">@item.fiyat</span>
+                            <span class="reducedfrom ">@item.fiyat ₺</span>
 
                             <div class="clearfix"></div>
                         </div>
                         <h4 class="quick">Açıklama:</h4>
                         <p class="quick_desc"> @item.aciklama</p>
+                        <p class="in-para"> Ürün Ekleme Tarihi : @item.tarih</p>
+
                         <div class="add-to">
                             <button class="btn btn-danger my-cart-btn my-cart-btn1 " data-id="17" data-name="@item.urunadi" data-summary="summary 17" data-price="0.80" data-quantity="1" data-image="~/Content/Bettapic/Bettapicb/@item.resimb">Add to Cart</button>
                         </div>
