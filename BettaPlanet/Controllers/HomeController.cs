@@ -38,6 +38,7 @@ namespace BettaPlanet.Controllers
             i.email = iletisim.email;
             i.topic = iletisim.topic;
             i.project = iletisim.project;
+            i.tarih = System.DateTime.Now;
             ctx.iletisim.Add(i);
             ctx.SaveChanges();
             Response.Redirect("/Home/Contact");
