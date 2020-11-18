@@ -23,15 +23,18 @@
                         <a href="#" data-toggle="modal" data-target="#myModal-@item.id" class="offer-img">
                             <img src="~/Content/Bettapic/Bettapicb/@item.resimb" class="img-responsive">
                         </a>
-                        <div class="mid-1">
+                        <hr />
+                        <div class="text-center">
                             <div class="women">
-                                <h6>@item.urunadi <br /> @item.kuyruk</h6>
+                                <h2>@item.urunadi @item.kuyruk </h2> <br /> 
+                                <h6> @item.yas</h6>
                             </div>
-                            <div class="mid-2">
+                            <hr />
                                 <p><em class="item_price">@item.fiyat</em> TL</p>
 
                                 <div class="clearfix"></div>
-                            </div>
+                            
+                            <hr />
                             <div class="add add-2">
                                 <button class="btn btn-danger my-cart-btn my-cart-b" data-id="@item.id" data-name="@item.urunadi" data-summary="summary 1" data-price="6.00" data-quantity="1" data-image="~/Content/Bettapic/Bettapicb/@item.resimb">Add to Cart</button>
                             </div>
@@ -82,7 +85,10 @@
                     </div>
                     <div class="col-md-7 span-1 ">
                         <h3>@item.urunadi</h3>
-                        <p class="in-para"> There are many variations of passages of Lorem Ipsum.</p>
+                        <span class="reducedfrom ">@item.kuyruk</span><br />
+                        <h6>Tecrübe:</h6>
+                        <span class="reducedfrom ">@item.tecrube</span>
+                        <p class="in-para"> Ürün Ekleme Tarihi : @item.tarih</p>
                         <div class="price_single">
                             <span class="reducedfrom ">@item.fiyat</span>
 
