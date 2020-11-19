@@ -62,5 +62,15 @@ namespace BettaPlanet.Models
             public DateTime tarih { get; set; }
 
         }
+        [Table("admin")]
+        public class admin
+        {
+            [Key]
+            [Column("id")]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+            public int id { get; set; }
+            public string username { get; set; }
+            public string password { get; set; }
+        }
     }
 }

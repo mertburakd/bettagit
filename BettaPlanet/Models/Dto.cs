@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -36,6 +37,20 @@ namespace BettaPlanet.Models
             public string resimk { get; set; }
             public string aciklama { get; set; }
             public DateTime tarih { get; set; }
+        }
+        public class LoginModel
+        {
+            [Required(ErrorMessage = "Please enter user name.")]
+            [Display(Name = "username")]
+            [StringLength(30)]
+            public string username { get; set; }
+
+            [Required(ErrorMessage = "Please enter password.")]
+            [DataType(DataType.Password)]
+            [Display(Name = "password")]
+            [StringLength(10)]
+            public string password { get; set; }
+
         }
 
     }

@@ -16,6 +16,10 @@ namespace BettaPlanet.Controllers
             mainpage = ctx.urunler.ToList();
             return View(mainpage);
         }
+        public ActionResult Hata()
+        {
+            return View();
+        }
 
         public ActionResult About()
         {

@@ -1,8 +1,10 @@
 ﻿
 <!DOCTYPE HTML>
+
+
 <html>
 <head>
-    <link rel="shortcut icon" href="~/Content/images/ssss.png"/>
+    <link rel="shortcut icon" href="~/Content/images/ssss.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -22,7 +24,11 @@
     <link rel="stylesheet" href="~/Content/Admin/css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
 </head>
+
+
+
 <body>
+
     <div class="page-container">
         <!--/content-inner-->
         <div class="left-content">
@@ -124,14 +130,14 @@
     <!-- morris JavaScript -->
     <script src="~/Content/Admin/js/raphael-min.js"></script>
     <script src="~/Content/Admin/js/morris.js"></script>
-   
+
     <script type="text/javascript">
 
 
         $('#submit').on('click', function (e) { //event binding
             console.log($('#Renk').val());
             var fd = new FormData();
-            
+
             var gelenur = {
                 'aciklama': $('#aciklama').val(),
                 'urunadi': $('#Renk').val(),
@@ -142,7 +148,7 @@
                 'resim': $('#inputpic').val(),
             }
             fd.append("aciklama", $('#aciklama').val()),
-            fd.append("ourFile", inputpic.files[0]);
+                fd.append("ourFile", inputpic.files[0]);
             fd.append("urunadi", $('#Renk').val());
             fd.append("yas", $('#Yas').val());
             fd.append("tecrube", $('#Tecrube option:selected').val());
@@ -173,11 +179,11 @@
                     success: function (data) {
                         console.log(data);
 
-                        
+
                     }
                 });
             }
         });
-        </script>
-</body >
-</html >
+    </script>
+</body>
+</html>

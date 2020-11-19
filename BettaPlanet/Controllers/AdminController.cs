@@ -14,9 +14,12 @@ namespace BettaPlanet.Controllers
 {
     public class AdminController : BaseController
     {
+        System.Web.HttpContext htc = System.Web.HttpContext.Current;
+        Auth yetki = new Auth();
         // GET: Admin
         public ActionResult Index()
         {
+       
             return View();
         }
 
