@@ -186,16 +186,24 @@ namespace BettaPlanet.Controllers
 
 
 
-        public ActionResult Siparisolustur(int id, Dto.sip ur,URUNLER gel)
+        public ActionResult Siparisolustur(int id, Dto.sip ur)
         {
             URUNLER u = ctx.urunler.FirstOrDefault(q => q.id == id);
+            sip adresgir = new sip();
             if ( u.id > 0)
             {
+                adresgir.adres = ur.adres;
+                adresgir.aliciad = ur.aliciad;
+                adresgir.tarih = DateTime.Now;
+                adresgir.telefon = ur.telefon;
 
-                
                 var se = ctx.siparisler.Add(new siparisler()
                 {
 
+                adres=adresgir.adres,
+                aliciad=adresgir.aliciad,
+                telefon=adresgir.telefon,
+                tarih = adresgir.tarih,
                 kuyruk = u.kuyruk,
                 fiyat = u.fiyat,
                 resimk = u.resimk,
@@ -209,7 +217,6 @@ namespace BettaPlanet.Controllers
 
             }
             ctx.SaveChanges();
-
             Response.Redirect("/Admin/Siparis?id=" + id);
 
             return View(u);
