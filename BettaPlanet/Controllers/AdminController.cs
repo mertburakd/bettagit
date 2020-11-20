@@ -186,33 +186,27 @@ namespace BettaPlanet.Controllers
 
 
 
-        public ActionResult Siparisolustur(int id, Dto.siparisler ur,URUNLER gel)
+        public ActionResult Siparisolustur(int id, Dto.sip ur,URUNLER gel)
         {
             URUNLER u = ctx.urunler.FirstOrDefault(q => q.id == id);
             if ( u.id > 0)
             {
 
-                ur.kuyruk = gel.kuyruk;
-                ur.fiyat = gel.fiyat;
-                ur.resimk = gel.resimk;
-                ur.tecrube = gel.tecrube;
-                ur.urunadi = gel.urunadi;
-                ur.yas = gel.yas;
-                ur.aciklama = gel.aciklama;
                 
+                var se = ctx.siparisler.Add(new siparisler()
+                {
+
+                kuyruk = u.kuyruk,
+                fiyat = u.fiyat,
+                resimk = u.resimk,
+                tecrube = u.tecrube,
+                urunadi = u.urunadi,
+                yas = u.yas,
+                aciklama = u.aciklama,
+            });
 
 
 
-            }
-            else
-            {
-                u.id = id;
-                u.fiyat = ur.fiyat;
-                u.kuyruk = ur.kuyruk;
-                u.tarih = System.DateTime.Now;
-                u.yas = ur.yas;
-                u.tecrube = ur.tecrube;
-                u.aciklama = ur.aciklama;
             }
             ctx.SaveChanges();
 

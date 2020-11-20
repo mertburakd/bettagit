@@ -52,7 +52,7 @@ namespace BettaPlanet.Models
             public string password { get; set; }
 
         }
-        public class siparisler
+        public class sip
         {
 
             public double fiyat { get; set; }
