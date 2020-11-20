@@ -32,7 +32,7 @@ namespace BettaPlanet.Models
             public string kuyruk { get; set; }
             public string tecrube { get; set; }
             public string yas { get; set; }
-            public string fiyat { get; set; }
+            public double fiyat { get; set; }
             public string resimb { get; set; }
             public string resimk { get; set; }
             public string aciklama { get; set; }
@@ -55,7 +55,7 @@ namespace BettaPlanet.Models
         public class siparisler
         {
 
-            public float fiyat { get; set; }
+            public double fiyat { get; set; }
             public string resimk { get; set; }
             public DateTime tarih { get; set; }
             public string kuyruk { get; set; }

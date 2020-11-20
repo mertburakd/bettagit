@@ -186,33 +186,21 @@ namespace BettaPlanet.Controllers
 
 
 
-        public ActionResult Siparisolustur(int id, Dto.siparisler ur)
+        public ActionResult Siparisolustur(int id, Dto.siparisler ur,URUNLER gel)
         {
             URUNLER u = ctx.urunler.FirstOrDefault(q => q.id == id);
-            HttpPostedFileBase resim = Request.Files["photo"];
-            if (resim.FileName != null && resim.ContentLength > 0)
+            if ( u.id > 0)
             {
 
-                Bitmap Resim = new Bitmap(resim.InputStream);
-                Bitmap kucuk = new Bitmap(Resim, 75, 75);
-                Bitmap buyuk = new Bitmap(Resim, 250, 250);
-                string resimAdi = (Guid.NewGuid().ToString("N")) + (Path.GetFileName(resim.FileName));
-                buyuk.Save(Server.MapPath("~/Content/Bettapic/Bettapicb/" + resimAdi));
-                kucuk.Save(Server.MapPath("~/Content/Bettapic/Bettapick/" + resimAdi));
-                Resim.Dispose();
-                kucuk.Dispose();
-                buyuk.Dispose();
+                ur.kuyruk = gel.kuyruk;
+                ur.fiyat = gel.fiyat;
+                ur.resimk = gel.resimk;
+                ur.tecrube = gel.tecrube;
+                ur.urunadi = gel.urunadi;
+                ur.yas = gel.yas;
+                ur.aciklama = gel.aciklama;
+                
 
-
-                u.id = id;
-                u.fiyat = ur.fiyat;
-                u.kuyruk = ur.kuyruk;
-                u.tarih = System.DateTime.Now;
-                u.yas = ur.yas;
-                u.tecrube = ur.tecrube;
-                u.resimk = resimAdi;
-                u.resimb = resimAdi;
-                u.aciklama = ur.aciklama;
 
 
             }
