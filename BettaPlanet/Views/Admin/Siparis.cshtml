@@ -13,7 +13,7 @@
         <div class="mother-grid-inner">
 
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Forms <i class="fa fa-angle-right"></i> Input</li>
+                <li class="breadcrumb-item"><a href="/Admin/Index">Home</a><i class="fa fa-angle-right"></i><a href="/Admin/Urunler">Ürünler</a> <i class="fa fa-angle-right"></i> Sipariş Ver</li>
             </ol>
             <!--grid-->
             <div class="grid-form">
@@ -22,6 +22,7 @@
                 <div class="grid-form1">
                     <form action="/Admin/Siparisolustur/@Model.id" name="formName" id="formName" enctype="multipart/form-data" class="form-horizontal xz" method="post">
                         <table class="table">
+                            <h3>Ürün Bilgileri</h3>
 
                             <thead class="thead-primary">
                                 <tr class="text-center">
@@ -35,38 +36,37 @@
                                 </tr>
                             </thead>
 
+                            <tr class="table-row">
+                                <td class="table-text">
+                                    <img src="/Content/Bettapic/Bettapick/@Model.resimk" alt="">
+                                </td>
+                                <td class="table-text">
+                                    <h6> @Model.urunadi</h6>
+                                </td>
 
+                                <td class="table-text">
+                                    <h6> @Model.fiyat</h6>
+                                </td>
+                                <td>
+                                    <span class="fam">@Model.kuyruk</span>
 
-                                <tr class="table-row">
-                                    <td class="table-text">
-                                        <img src="~/Content/Bettapic/Bettapick/@Model.resimk" alt="">
-                                    </td>
-                                    <td class="table-text">
-                                        <h6> @Model.urunadi</h6>
-                                    </td>
+                                </td>
+                                <td>
+                                    <span class="mar">@Model.tecrube</span>
+                                </td>
+                                <td class="table-text">
+                                    <h6> @Model.yas</h6>
+                                </td>
+                                <td class="march">
+                                    <h6> @Model.tarih</h6>
+                                </td>
+                               
 
-                                    <td class="table-text">
-                                        <h6> @Model.fiyat</h6>
-                                    </td>
-                                    <td>
-                                        <span class="fam">@Model.kuyruk</span>
-
-                                    </td>
-                                    <td>
-                                        <span class="mar">@Model.tecrube</span>
-                                    </td>
-                                    <td class="table-text">
-                                        <h6> @Model.yas</h6>
-                                    </td>
-                                    <td class="march">
-                                        <h6> @Model.tarih</h6>
-                                    </td>
-                                </tr>
-                            
+                            </tr>
                         </table>
                         <hr />
                         <div class="grid-form1">
-                                <h5>Alıcı Bilgileri</h5>
+                                <h3>Alıcı Bilgileri</h3>
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="horizontal-form">
 
