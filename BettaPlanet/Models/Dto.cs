@@ -52,6 +52,21 @@ namespace BettaPlanet.Models
             public string password { get; set; }
 
         }
+        public class siparisler
+        {
+
+            public float fiyat { get; set; }
+            public string resimk { get; set; }
+            public DateTime tarih { get; set; }
+            public string kuyruk { get; set; }
+            public string tecrube { get; set; }
+            public string yas { get; set; }
+            public string aciklama { get; set; }
+            public string aliciad { get; set; }
+            public string urunadi { get; set; }
+            public string adres { get; set; }
+            public string telefon { get; set; }
+        }
 
     }
 }

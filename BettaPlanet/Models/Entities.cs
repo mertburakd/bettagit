@@ -72,5 +72,26 @@ namespace BettaPlanet.Models
             public string username { get; set; }
             public string password { get; set; }
         }
+
+        [Table("siparisler")]
+        public class siparisler
+        {
+            [Key]
+            [Column("id")]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
+            public int id { get; set; }
+            public float fiyat { get; set; }
+            public string resimk { get; set; }
+            public DateTime tarih { get; set; }
+            public string kuyruk { get; set; }
+            public string tecrube { get; set; }
+            public string yas { get; set; }
+            public string aciklama { get; set; }
+            public string aliciad { get; set; }
+            public string urunadi { get; set; }
+            public string adres { get; set; }
+            public string telefon { get; set; }
+        }
     }
 }

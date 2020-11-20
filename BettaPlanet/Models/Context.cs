@@ -22,6 +22,7 @@ namespace BettaPlanet.Models
         public DbSet<iletisim> iletisim { get; set; }
         public DbSet<balikbilgi> balikbilgi { get; set; }
         public DbSet<admin> admin { get; set; }
+        public DbSet<siparisler> siparisler { get; set; }
     
 
     }

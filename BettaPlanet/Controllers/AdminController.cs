@@ -19,7 +19,7 @@ namespace BettaPlanet.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-       
+
             return View();
         }
 
@@ -176,7 +176,62 @@ namespace BettaPlanet.Controllers
             return View();
 
         }
-     
+
+
+        public ActionResult Siparis(int id)
+        {
+            URUNLER sip = ctx.urunler.FirstOrDefault(p => p.id == id);
+            return View(sip);
+        }
+
+
+
+        public ActionResult Siparisolustur(int id, Dto.siparisler ur)
+        {
+            URUNLER u = ctx.urunler.FirstOrDefault(q => q.id == id);
+            HttpPostedFileBase resim = Request.Files["photo"];
+            if (resim.FileName != null && resim.ContentLength > 0)
+            {
+
+                Bitmap Resim = new Bitmap(resim.InputStream);
+                Bitmap kucuk = new Bitmap(Resim, 75, 75);
+                Bitmap buyuk = new Bitmap(Resim, 250, 250);
+                string resimAdi = (Guid.NewGuid().ToString("N")) + (Path.GetFileName(resim.FileName));
+                buyuk.Save(Server.MapPath("~/Content/Bettapic/Bettapicb/" + resimAdi));
+                kucuk.Save(Server.MapPath("~/Content/Bettapic/Bettapick/" + resimAdi));
+                Resim.Dispose();
+                kucuk.Dispose();
+                buyuk.Dispose();
+
+
+                u.id = id;
+                u.fiyat = ur.fiyat;
+                u.kuyruk = ur.kuyruk;
+                u.tarih = System.DateTime.Now;
+                u.yas = ur.yas;
+                u.tecrube = ur.tecrube;
+                u.resimk = resimAdi;
+                u.resimb = resimAdi;
+                u.aciklama = ur.aciklama;
+
+
+            }
+            else
+            {
+                u.id = id;
+                u.fiyat = ur.fiyat;
+                u.kuyruk = ur.kuyruk;
+                u.tarih = System.DateTime.Now;
+                u.yas = ur.yas;
+                u.tecrube = ur.tecrube;
+                u.aciklama = ur.aciklama;
+            }
+            ctx.SaveChanges();
+
+            Response.Redirect("/Admin/Siparis?id=" + id);
+
+            return View(u);
+        }
 
     }
 }
