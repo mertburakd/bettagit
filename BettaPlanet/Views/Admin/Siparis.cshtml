@@ -33,33 +33,32 @@
                                     <th>Tarih</th>
                                 </tr>
                             </thead>
-                            @foreach (var item in Model)
-                            {
+
 
 
                                 <tr class="table-row">
                                     <td class="table-text">
-                                        <img src="~/Content/Bettapic/Bettapick/@item.resimk" alt="">
+                                        <img src="~/Content/Bettapic/Bettapick/@Model.resimk" alt="">
                                     </td>
                                     <td class="table-text">
-                                        <h6> @item.urunadi</h6>
+                                        <h6> @Model.urunadi</h6>
                                     </td>
 
                                     <td class="table-text">
-                                        <h6> @item.fiyat</h6>
+                                        <h6> @Model.fiyat</h6>
                                     </td>
                                     <td>
-                                        <span class="fam">@item.kuyruk</span>
+                                        <span class="fam">@Model.kuyruk</span>
 
                                     </td>
                                     <td>
-                                        <span class="mar">@item.tecrube</span>
+                                        <span class="mar">@Model.tecrube</span>
                                     </td>
                                     <td class="table-text">
-                                        <h6> @item.yas</h6>
+                                        <h6> @Model.yas</h6>
                                     </td>
                                     <td class="march">
-                                        <h6> @item.tarih</h6>
+                                        <h6> @Model.tarih</h6>
                                     </td>
                                 </tr>
                             }
