@@ -194,7 +194,7 @@ namespace BettaPlanet.Controllers
             {
                 adresgir.adres = ur.adres;
                 adresgir.aliciad = ur.aliciad;
-                adresgir.tarih = DateTime.Now;
+                adresgir.tarih = System.DateTime.Now;
                 adresgir.telefon = ur.telefon;
 
                 var se = ctx.siparisler.Add(new siparisler()
