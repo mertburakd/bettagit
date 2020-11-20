@@ -4,15 +4,7 @@
     Layout = "~/Views/SharedA/_Layout.cshtml";
 }
 
-@{
-    if (Request.QueryString["h"] != null)
-    {
-        <script>alert('@Request.QueryString["h"]');</script>
 
-    }
-
-}
-@model BettaPlanet.Models.Entities.URUNLER
 
 <title>Admin | Düzenle</title>
 

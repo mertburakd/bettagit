@@ -4,15 +4,6 @@
     Layout = "~/Views/SharedA/_Layout.cshtml";
 }
 
-@{
-    if (Request.QueryString["h"] != null)
-    {
-        <script>alert('@Request.QueryString["h"]');</script>
-
-    }
-
-}
-@model BettaPlanet.Models.Entities.URUNLER
 
 <title>Admin | Düzenle</title>
 
@@ -29,89 +20,87 @@
                 <!----->
 
                 <div class="grid-form1">
-                    <form action="/Admin/UrunDuzenle/@Model.id" name="formName" id="formName" enctype="multipart/form-data" class="form-horizontal xz" method="post">
-                        <h3>ÜRÜN DÜZENLE</h3>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="horizontal-form">
+                    <form action="/Admin/Siparisolustur/@Model.id" name="formName" id="formName" enctype="multipart/form-data" class="form-horizontal xz" method="post">
+                        <table class="table">
 
-                                <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Renk variyantı ve Isim</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" name="urunadi" class="form-control1  bbb" id="Renk" placeholder="İlk Renk yazılacak...! " data-check="req" data-hata="Boş alanı doldurunuz." value="@Model.urunadi">
+                            <thead class="thead-primary">
+                                <tr class="text-center">
+                                    <th>Fotoğraf</th>
+                                    <th>Ürün Adı </th>
+                                    <th>Kuyruk</th>
+                                    <th>Tecrübe</th>
+                                    <th>Yaş</th>
+                                    <th>Tarih</th>
+                                </tr>
+                            </thead>
+                            @foreach (var item in Model)
+                            {
+
+
+                                <tr class="table-row">
+                                    <td class="table-text">
+                                        <img src="~/Content/Bettapic/Bettapick/@item.resimk" alt="">
+                                    </td>
+                                    <td class="table-text">
+                                        <h6> @item.urunadi</h6>
+                                    </td>
+
+                                    <td class="table-text">
+                                        <h6> @item.fiyat</h6>
+                                    </td>
+                                    <td>
+                                        <span class="fam">@item.kuyruk</span>
+
+                                    </td>
+                                    <td>
+                                        <span class="mar">@item.tecrube</span>
+                                    </td>
+                                    <td class="table-text">
+                                        <h6> @item.yas</h6>
+                                    </td>
+                                    <td class="march">
+                                        <h6> @item.tarih</h6>
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                        <hr />
+                        <div class="grid-form1">
+                                <h5>Alıcı Bilgileri</h5>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="horizontal-form">
+
+                                        <div class="form-group">
+                                            <label for="focusedinput" class="col-sm-2 control-label">Müşteri Adı</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" name="urunadi" class="form-control1  bbb" id="Renk" placeholder="İlk Renk yazılacak...! " data-check="req" data-hata="Boş alanı doldurunuz." value="@Model.urunadi">
+                                            </div>
+                                            <input type="hidden" value="@Model.id" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="focusedinput" class="col-sm-2 control-label">Adres</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control1 bbb" id="Yas" data-check="req" data-hata="Boş alanı doldurunuz." name="yas" value="@Model.yas">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="focusedinput" class="col-sm-2 control-label">Telefon</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control1  bbb" id="aciklama" placeholder="Açıklama giriniz.. " data-check="req" data-hata="Boş alanı doldurunuz." name="aciklama" value="@Model.aciklama">
+                                            </div>
+                                        </div>
+
                                     </div>
-                                    <input type="hidden" value="@Model.id" />
                                 </div>
-                                <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Tahmini Yaş Bilgisi</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control1 bbb" id="Yas" data-check="req" data-hata="Boş alanı doldurunuz." name="yas" value="@Model.yas">
-                                    </div>
+                                <div class="panel-body">
                                 </div>
-
-
-                                <div class="form-group">
-                                    <label for="Tecrube" class="col-sm-2 control-label">TECRÜBE</label>
-                                    <div class="col-sm-8">
-                                        <select id="Tecrube" class="form-control1  bbb" name="tecrube">
-                                            <option value="@Model.tecrube">@Model.tecrube</option>
-                                            <option value="Yok">YOK</option>
-                                            <option value="Var">VAR</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-
-
-                                <div class="form-group">
-                                    <label for="kuyruk" class="col-sm-2 control-label">KUYRUK SECIMI </label>
-                                    <div class="col-sm-8">
-                                        <select name="kuyruk" id="Kuyruk" class="form-control1  bbb" data-check="req" data-hata="Boş alanı doldurunuz.">
-                                            <option value="@Model.kuyruk">@Model.kuyruk</option>
-                                            <option value="HM">HM</option>
-                                            <option value="HMPK">HMPK</option>
-                                            <option value="OHM">OHM</option>
-                                            <option value="OHPK">OHPK</option>
-                                            <option value="CROWNTAIL">CROWNTAİL</option>
-                                            <option value="VEILTEIL">VEILTEIL</option>
-                                            <option value="BUTTERFLY">BUTTERFLY</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Acıklama</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control1  bbb" id="aciklama" placeholder="Açıklama giriniz.. " data-check="req" data-hata="Boş alanı doldurunuz." name="aciklama" value="@Model.aciklama">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="focusedinput" class="col-sm-2 control-label">Fiyat</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control1  bbb" id="Fiyat" placeholder="Fiyat Bilgisi Giriniz..." data-check="req" data-hata="Boş alanı doldurunuz." name="fiyat" value="@Model.fiyat">
-                                    </div>
-                                </div>
-
-
-                            </div>
                         </div>
-                        <div class="panel-body">
-                        </div>
-                        <div class="bs-example" data-example-id="form-validation-states-with-icons">
 
-
-
-                            <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="photo">File input</label>
-                            <input type="file" name="photo" id="inputpic" class="bbb" data-check="req" data-hata="Boş alanı doldurunuz.">
-                            <p class="help-block">Example block-level help text here.</p>
-                        </div>
                         <div class="panel-footer">
                             <div class="row">
                                 <div class="col-sm-8 col-sm-offset-2">
 
-                                    <a href="/Admin/Siparisolustur/@Model.id"> <input class="btn-primary btn" type="submit" value="Submit" />  </a>
+                                    <a href="/Admin/Siparisolustur/@Model.id"> <input class="btn-primary btn" type="submit" value="Sipariş Oluştur" />  </a>
 
                                     <input type="reset" class="btn-inverse btn" id="reset" value="Reset" />
                                     <input type="button" class="btn-default btn" onclick="window.location.href='/Admin/Index'" value="Cancel">
