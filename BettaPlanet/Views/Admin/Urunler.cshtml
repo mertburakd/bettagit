@@ -101,6 +101,7 @@
                                                 <th>Tecrübe</th>
                                                 <th>Yaş </th>
                                                 <th>Tarih</th>
+                                                <th>Sipariş</th>
                                                 <th>Düzenle</th>
                                                 <th>Sil</th>
                                             </tr>
@@ -111,7 +112,7 @@
 
                                         <tr class="table-row">
                                             <td class="table-text">
-                                                <img  src="~/Content/Bettapic/Bettapick/@item.resimk" alt="">
+                                                <img src="~/Content/Bettapic/Bettapick/@item.resimk" alt="">
                                             </td>
                                             <td class="table-text">
                                                 <h6> @item.urunadi</h6>
@@ -134,12 +135,16 @@
                                                 <h6> @item.tarih</h6>
                                             </td>
                                             <td>
-                                                 <a href="/Admin/Duzeltici/@item.id" class="fa fa-magic icon-state-warning"></a>
+                                                <a href="/Admin/Siparis/@item.id"> <input style="background-color:lightgray;" class="btn" type="submit" value="Sipariş" />  </a>
+                                            </td>
+
+                                            <td>
+                                                <a href="/Admin/Duzeltici/@item.id" class="fa fa-magic icon-state-warning"></a>
                                             </td>
                                             <td>
-                 
-                                            <a href="/Admin/Urunsil/@item.id" class="fa  fa-trash-o icon-state-warning reqq"></a>
+                                                <a href="/Admin/Urunsil/@item.id" class="fa  fa-trash-o icon-state-warning reqq"></a>
                                             </td>
+
                                         </tr>
                                         }
                                     </table>
