@@ -9,7 +9,7 @@ namespace BettaPlanet.Controllers
 {
     public class HomeController : BaseController
     {
-
+        System.Web.HttpContext htc = System.Web.HttpContext.Current;
         public ActionResult Index()
         {
             List<URUNLER> mainpage = new List<URUNLER>();
@@ -44,6 +44,7 @@ namespace BettaPlanet.Controllers
             i.topic = iletisim.topic;
             i.project = iletisim.project;
             i.tarih = System.DateTime.Now;
+            i.ip = htc.Request.ServerVariables["REMOTE_ADDR"];
             ctx.iletisim.Add(i);
             ctx.SaveChanges();
             Response.Redirect("/Home/Contact");

@@ -391,10 +391,6 @@
     <Content Include="Content\shipping.html" />
     <Content Include="Content\single.html" />
     <Content Include="Content\terms.html" />
-    <Content Include="Content\video\video.gif" />
-    <Content Include="Content\video\video.jpg" />
-    <Content Include="Content\video\video.mp4" />
-    <Content Include="Content\video\video.png" />
     <Content Include="Content\wishlist.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -515,6 +511,7 @@
     <Content Include="Content\login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Content\login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Content\login\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

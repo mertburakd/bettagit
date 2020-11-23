@@ -35,6 +35,7 @@ namespace BettaPlanet.Models
             public string email { get; set; }
             public string topic { get; set; }
             public string project { get; set; }
+            public string ip { get; set; }
             public DateTime tarih { get; set; }
 
 
