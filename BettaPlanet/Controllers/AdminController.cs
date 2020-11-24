@@ -35,7 +35,6 @@ namespace BettaPlanet.Controllers
             var myid = System.Web.HttpContext.Current.Session.SessionID;
             MethodStatus _m = new MethodStatus();
             _m.AdditionalData = new List<AddData>();
-            string directory = Server.MapPath("/Content/Bettapic");
             if (gelenur.urunadi == null)
             {
                 _m.Error = 1;
@@ -58,7 +57,7 @@ namespace BettaPlanet.Controllers
                 Bitmap Resim = new Bitmap(ourFile.InputStream);
                 Bitmap kucuk = new Bitmap(Resim, 75, 75);
                 Bitmap buyuk = new Bitmap(Resim, 250, 250);
-                string resimAdi = (Guid.NewGuid().ToString("N")) + (Path.GetFileName(ourFile.FileName));
+                string resimAdi = (Path.GetFileName(ourFile.FileName));
                 buyuk.Save(Server.MapPath("~/Content/Bettapic/Bettapicb/" + resimAdi));
                 kucuk.Save(Server.MapPath("~/Content/Bettapic/Bettapick/" + resimAdi));
                 Resim.Dispose();
